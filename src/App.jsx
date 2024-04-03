@@ -1,11 +1,22 @@
-import AuthPage from "./pages/AuthPage";
+import Router from "./router/Router";
+import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+import defaultOptions from "./configs/reactQueryConfigs";
 
 function App() {
+  const queryClient = new QueryClient({
+    defaultOptions,
+  });
+
   return (
-    <div>
-      <h1>پروژه دیوار</h1>
-      <AuthPage />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   );
 }
 
