@@ -7,11 +7,12 @@ import AuthPage from "../pages/AuthPage";
 import AdminPage from "../pages/AdminPage";
 import PageNotFound from "../pages/404";
 import { getProfile } from "../services/user";
+import Loader from "../components/modules/Loader";
 
 function Router() {
   const { data, isLoading, error } = useQuery(["profile"], getProfile);
   console.log({ data, isLoading, error });
-  if (isLoading) return <h1> Loading</h1>;
+  if (isLoading) return <Loader />;
 
   return (
     <Routes>
