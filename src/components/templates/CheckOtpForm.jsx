@@ -21,7 +21,6 @@ function CheckOtpForm({ code, setCode, mobile, setStep }) {
       setCookie(response.data);
       navigate("/");
       refetch();
-      console.log(response);
     }
     if (error) console.log(error.response.data.message);
   };
